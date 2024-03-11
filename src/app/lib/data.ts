@@ -3,10 +3,7 @@ import { Driver } from './definitions';
 
 export const PAGE_LIMIT: number = 10;
 
-export async function fetchFilteredDrivers(
-  query: string,
-  currentPage: number,
-) {
+export async function fetchFilteredDrivers(query: string, currentPage: number) {
   const offset = (currentPage - 1) * PAGE_LIMIT;
 
   try {
