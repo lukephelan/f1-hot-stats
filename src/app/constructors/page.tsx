@@ -1,4 +1,7 @@
-import { fetchFilteredDrivers, fetchDriversPages } from '@/app/lib/data';
+import {
+  fetchFilteredConstructors,
+  fetchConstructorsPages,
+} from '@/app/lib/data';
 import Search from '@/app/ui/search';
 import Table from '@/app/ui/table';
 import Pagination from '@/app/ui/pagination';
@@ -6,19 +9,7 @@ import Pagination from '@/app/ui/pagination';
 const HEADERS = [
   {
     key: 'name',
-    label: 'Driver',
-  },
-  {
-    key: 'number',
-    label: 'Number',
-  },
-  {
-    key: 'code',
-    label: 'Code',
-  },
-  {
-    key: 'dob',
-    label: 'DOB',
+    label: 'Constructor',
   },
   {
     key: 'nationality',
@@ -37,21 +28,25 @@ export default async function Page({
   const query = searchParams?.query || '';
   const currentPage = Number(searchParams?.page) || 1;
 
-  const drivers = await fetchFilteredDrivers(query, currentPage);
-  const { totalPages, totalCount } = await fetchDriversPages(query);
+  const constructors = await fetchFilteredConstructors(query, currentPage);
+  const { totalPages, totalCount } = await fetchConstructorsPages(query);
 
   return (
     <div className='w-full'>
       <div className='flex w-full items-center justify-between pb-5'>
-        <h1 className='text-2xl'>Drivers</h1>
+        <h1 className='text-2xl'>Constructors</h1>
       </div>
       <div className='flex items-center justify-between gap-2 md:mt-8'>
-        <Search placeholder='Search drivers...' />
+        <Search placeholder='Search constructors...' />
       </div>
       <div className='mt-6 flow-root'>
         <div className='inline-block min-w-full align-middle'>
           <div className='rounded-lg bg-gray-50 text-gray-900 p-2 md:pt-0'>
-            <Table headers={HEADERS} rows={drivers} rowId={'driverId'} />
+            <Table
+              headers={HEADERS}
+              rows={constructors}
+              rowId={'constructorId'}
+            />
             <Pagination totalPages={totalPages} totalCount={totalCount} />
           </div>
         </div>

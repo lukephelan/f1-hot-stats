@@ -3,9 +3,16 @@ export type Driver = {
   driverRef: string;
   number: number | null;
   code: string;
-  forename: string;
-  surname: string;
-  dob: Date;
+  name: string;
+  dob: string;
+  nationality: string;
+  url: string;
+};
+
+export type Constructor = {
+  constructorId: number;
+  constructorRef: string;
+  name: string;
   nationality: string;
   url: string;
 };
