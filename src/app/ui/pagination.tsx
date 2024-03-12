@@ -20,7 +20,7 @@ export default function Pagination({
   const allPages = generatePagination(currentPage, totalPages);
 
   const startRange = currentPage * PAGE_LIMIT - PAGE_LIMIT + 1;
-  const endRange = Math.min(startRange + PAGE_LIMIT, totalCount);
+  const endRange = Math.min(startRange + PAGE_LIMIT - 1, totalCount);
 
   const createPageURL = (pageNumber: number | string) => {
     const params = new URLSearchParams(searchParams);
