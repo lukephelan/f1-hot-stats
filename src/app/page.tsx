@@ -5,6 +5,7 @@ export default function Home() {
     <main className='flex min-h-screen flex-col'>
       <h1 className='text-2xl'>F1 Hot Stats!</h1>
       <p className='py-5'>Select a page from the menu to get started.</p>
+      <p>Statistics are from 1950 to today.</p>
     </main>
   );
 }

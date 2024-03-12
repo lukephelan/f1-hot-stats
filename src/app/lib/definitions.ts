@@ -16,3 +16,8 @@ export type Constructor = {
   nationality: string;
   url: string;
 };
+
+export type Season = {
+  year: number;
+  url: string;
+};
