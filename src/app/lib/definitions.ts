@@ -21,3 +21,12 @@ export type Season = {
   year: number;
   url: string;
 };
+
+export type Circuit = {
+  circuitId: number;
+  circuitRef: string;
+  name: string;
+  location: string;
+  country: string;
+  url: string;
+};
