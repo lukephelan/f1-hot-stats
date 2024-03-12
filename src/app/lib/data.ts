@@ -71,7 +71,6 @@ export async function fetchFilteredConstructors(
     ORDER BY
       constructors.name ASC
     LIMIT ${PAGE_LIMIT} OFFSET ${offset}
-
   `;
     return constructors.rows;
   } catch (err) {
@@ -111,7 +110,6 @@ export async function fetchFilteredSeasons(query: string, currentPage: number) {
     ORDER BY
       seasons.year DESC
     LIMIT ${PAGE_LIMIT} OFFSET ${offset}
-
   `;
     return seasons.rows;
   } catch (err) {
@@ -158,7 +156,6 @@ export async function fetchFilteredCircuits(
     ORDER BY
       circuits.name ASC
     LIMIT ${PAGE_LIMIT} OFFSET ${offset}
-
   `;
     return circuits.rows;
   } catch (err) {
