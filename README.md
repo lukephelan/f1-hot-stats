@@ -31,8 +31,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### TO-DO:
 
-* Table of Circuits
-* Table of Seasons
 * Detail pages
 * More stats, charts, and graphs
 * Improved styling
