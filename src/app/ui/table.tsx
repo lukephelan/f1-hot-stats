@@ -12,8 +12,8 @@ export function MobileTable({
       {rows?.map((row) => (
         <div key={row[rowId]} className='mb-2 w-full rounded-md bg-white p-4'>
           {headers.map(({ key }) => (
-            <div key={key} className='border-b pb-4'>
-              {row[key]}
+            <div key={key} className='border-b py-2'>
+              {row[key] || '—'}
             </div>
           ))}
         </div>
@@ -50,7 +50,7 @@ export function DesktopTable({
           >
             {headers.map(({ key }) => (
               <td key={key} className='whitespace-nowrap px-3 py-3'>
-                {row[key]}
+                {row[key] || '—'}
               </td>
             ))}
           </tr>
