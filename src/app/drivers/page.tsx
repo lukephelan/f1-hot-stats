@@ -1,6 +1,8 @@
-import { fetchFilteredDrivers, fetchDriversPages } from '@/app/lib/data';
+import { fetchDriversPages } from '@/app/lib/data';
+import { Suspense } from 'react';
+import { TableSkeleton } from '@/app/ui/skeletons';
 import Search from '@/app/ui/search';
-import Table from '@/app/ui/table';
+import DriversTable from '@/app/ui/drivers/table';
 import Pagination from '@/app/ui/pagination';
 
 const HEADERS = [
@@ -37,7 +39,6 @@ export default async function Page({
   const query = searchParams?.query || '';
   const currentPage = Number(searchParams?.page) || 1;
 
-  const drivers = await fetchFilteredDrivers(query, currentPage);
   const { totalPages, totalCount } = await fetchDriversPages(query);
 
   return (
@@ -51,7 +52,16 @@ export default async function Page({
       <div className='mt-6 flow-root'>
         <div className='inline-block min-w-full align-middle'>
           <div className='rounded-lg bg-gray-50 text-gray-900 p-2 md:pt-0'>
-            <Table headers={HEADERS} rows={drivers} rowId={'driverId'} />
+            <Suspense
+              key={query + currentPage}
+              fallback={<TableSkeleton headers={HEADERS} />}
+            >
+              <DriversTable
+                headers={HEADERS}
+                query={query}
+                currentPage={currentPage}
+              />
+            </Suspense>
             <Pagination totalPages={totalPages} totalCount={totalCount} />
           </div>
         </div>

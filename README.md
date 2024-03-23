@@ -31,8 +31,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### TO-DO:
 
+* Consolidate pages into a single component
+* Responsive menu
 * Detail pages
-* More stats, charts, and graphs
+* Stats, charts, graphs
 * Improved styling
 * No results message on tables
 * Instructions on setting up the database and deploying the application
+* Move DB to new region
