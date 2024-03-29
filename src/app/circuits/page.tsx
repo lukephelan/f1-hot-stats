@@ -1,4 +1,4 @@
-import { fetchCircuitsPages } from '@/app/lib/data';
+import { fetchCircuitsPages } from '@/app/lib/data/circuits';
 import { Suspense } from 'react';
 import { TableSkeleton } from '@/app/ui/skeletons';
 import Search from '@/app/ui/search';

@@ -1,4 +1,4 @@
-import { fetchConstructor } from '@/app/lib/data';
+import { fetchConstructor } from '@/app/lib/data/constructors';
 import { BackButton } from '@/app/ui/buttons';
 
 export default async function Page({ params }: { params: { id: string } }) {

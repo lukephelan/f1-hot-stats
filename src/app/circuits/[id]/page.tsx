@@ -1,4 +1,4 @@
-import { fetchCircuit } from '@/app/lib/data';
+import { fetchCircuit } from '@/app/lib/data/circuits';
 import { BackButton } from '@/app/ui/buttons';
 
 export default async function Page({ params }: { params: { id: string } }) {

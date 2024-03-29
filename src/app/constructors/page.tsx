@@ -1,4 +1,4 @@
-import { fetchConstructorsPages } from '@/app/lib/data';
+import { fetchConstructorsPages } from '@/app/lib/data/constructors';
 import { Suspense } from 'react';
 import { TableSkeleton } from '@/app/ui/skeletons';
 import Search from '@/app/ui/search';

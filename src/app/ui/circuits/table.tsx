@@ -1,4 +1,4 @@
-import { fetchFilteredCircuits } from '@/app/lib/data';
+import { fetchFilteredCircuits } from '@/app/lib/data/circuits';
 import Table from '@/app/ui/table';
 
 export default async function CircuitsTable({

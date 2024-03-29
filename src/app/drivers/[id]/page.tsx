@@ -1,4 +1,4 @@
-import { fetchDriver } from '@/app/lib/data';
+import { fetchDriver } from '@/app/lib/data/drivers';
 import { BackButton } from '@/app/ui/buttons';
 
 export default async function Page({ params }: { params: { id: string } }) {

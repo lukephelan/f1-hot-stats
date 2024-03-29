@@ -1,4 +1,4 @@
-import { fetchSeasonsPages } from '@/app/lib/data';
+import { fetchSeasonsPages } from '@/app/lib/data/seasons';
 import { Suspense } from 'react';
 import { TableSkeleton } from '@/app/ui/skeletons';
 import Search from '@/app/ui/search';

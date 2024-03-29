@@ -2,7 +2,6 @@
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
 import { generatePagination } from '@/app/lib/utils';
-import { PAGE_LIMIT } from '@/app/lib/data';
 import { usePathname, useSearchParams } from 'next/navigation';
 import clsx from 'clsx';
 import Link from 'next/link';
@@ -10,17 +9,19 @@ import Link from 'next/link';
 export default function Pagination({
   totalPages,
   totalCount,
+  pageLimit = 10,
 }: {
   totalPages: number;
   totalCount: number;
+  pageLimit?: number;
 }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get('page')) || 1;
   const allPages = generatePagination(currentPage, totalPages);
 
-  const startRange = currentPage * PAGE_LIMIT - PAGE_LIMIT + 1;
-  const endRange = Math.min(startRange + PAGE_LIMIT - 1, totalCount);
+  const startRange = currentPage * pageLimit - pageLimit + 1;
+  const endRange = Math.min(startRange + pageLimit - 1, totalCount);
 
   const createPageURL = (pageNumber: number | string) => {
     const params = new URLSearchParams(searchParams);
