@@ -1,16 +1,26 @@
+'use client';
+
+import { useRouter, usePathname } from 'next/navigation';
+
 export function MobileTable({
   headers,
   rows,
   rowId,
+  onRowClick,
 }: {
   headers: { key: string; label: string }[];
   rows: Record<string, string | number | null>[];
   rowId: string;
+  onRowClick: Function;
 }) {
   return (
     <div className='md:hidden'>
       {rows?.map((row) => (
-        <div key={row[rowId]} className='mb-2 w-full rounded-md bg-white p-4'>
+        <div
+          key={row[rowId]}
+          className='mb-2 w-full rounded-md bg-white p-4 cursor-pointer'
+          onClick={() => onRowClick(row[rowId])}
+        >
           {headers.map(({ key }) => (
             <div key={key} className='border-b py-2'>
               {row[key] || '—'}
@@ -26,10 +36,12 @@ export function DesktopTable({
   headers,
   rows,
   rowId,
+  onRowClick,
 }: {
   headers: { key: string; label: string }[];
   rows: Record<string, string | number | null>[];
   rowId: string;
+  onRowClick: Function;
 }) {
   return (
     <table className='hidden min-w-full text-gray-900 md:table'>
@@ -46,7 +58,8 @@ export function DesktopTable({
         {rows.map((row) => (
           <tr
             key={row[rowId]}
-            className='w-full border-b py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg'
+            className='w-full border-b py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg cursor-pointer'
+            onClick={() => onRowClick(row[rowId])}
           >
             {headers.map(({ key }) => (
               <td key={key} className='whitespace-nowrap px-3 py-3'>
@@ -60,7 +73,7 @@ export function DesktopTable({
   );
 }
 
-export default async function Table({
+export default function Table({
   headers,
   rows,
   rowId,
@@ -69,10 +82,27 @@ export default async function Table({
   rows: Record<string, string | number | null>[];
   rowId: string;
 }) {
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const onRowClick = (rowId: string | number) => {
+    router.push(`${pathname}/${rowId}`);
+  };
+
   return (
     <>
-      <MobileTable headers={headers} rows={rows} rowId={rowId} />
-      <DesktopTable headers={headers} rows={rows} rowId={rowId} />
+      <MobileTable
+        headers={headers}
+        rows={rows}
+        rowId={rowId}
+        onRowClick={onRowClick}
+      />
+      <DesktopTable
+        headers={headers}
+        rows={rows}
+        rowId={rowId}
+        onRowClick={onRowClick}
+      />
     </>
   );
 }

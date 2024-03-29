@@ -31,9 +31,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### TO-DO:
 
-* Consolidate pages into a single component
-* Responsive menu
 * Detail pages
+* Error page
+* Responsive menu
 * Stats, charts, graphs
 * Improved styling
 * No results message on tables

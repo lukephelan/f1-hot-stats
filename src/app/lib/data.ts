@@ -52,6 +52,26 @@ export async function fetchDriversPages(query: string) {
   }
 }
 
+export async function fetchDriver(driverId: string) {
+  try {
+    const drivers = await sql<Driver>`
+    SELECT 
+      drivers."driverId",
+      CONCAT(drivers.forename, ' ', drivers.surname) AS name,
+      drivers.number,
+      drivers.code,
+      TO_CHAR(drivers.dob, 'D Month YYYY') AS dob,
+      drivers.nationality
+      FROM drivers
+      WHERE drivers."driverId" = ${driverId}
+    `;
+    return drivers.rows[0];
+  } catch (err) {
+    console.log('Database Error: ', err);
+    throw new Error('Failed to fetch driver.');
+  }
+}
+
 export async function fetchFilteredConstructors(
   query: string,
   currentPage: number
@@ -97,6 +117,20 @@ export async function fetchConstructorsPages(query: string) {
   }
 }
 
+export async function fetchConstructor(constructorId: string) {
+  try {
+    const constructors = await sql<Constructor>`
+      SELECT *
+      FROM constructors
+      WHERE constructors."constructorId" = ${constructorId}
+    `;
+    return constructors.rows[0];
+  } catch (err) {
+    console.log('Database Error: ', err);
+    throw new Error('Failed to fetch constructor.');
+  }
+}
+
 export async function fetchFilteredSeasons(query: string, currentPage: number) {
   const offset = (currentPage - 1) * PAGE_LIMIT;
 
@@ -132,6 +166,20 @@ export async function fetchSeasonsPages(query: string) {
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch total number of seasons.');
+  }
+}
+
+export async function fetchSeason(seasonId: string) {
+  try {
+    const seasons = await sql<Season>`
+      SELECT *
+      FROM seasons
+      WHERE seasons.year = ${seasonId}
+    `;
+    return seasons.rows[0];
+  } catch (err) {
+    console.log('Database Error: ', err);
+    throw new Error('Failed to fetch season.');
   }
 }
 
@@ -180,5 +228,19 @@ export async function fetchCircuitsPages(query: string) {
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch total number of seasons.');
+  }
+}
+
+export async function fetchCircuit(circuitId: string) {
+  try {
+    const circuits = await sql<Circuit>`
+      SELECT *
+      FROM circuits
+      WHERE circuits."circuitId" = ${circuitId}
+    `;
+    return circuits.rows[0];
+  } catch (err) {
+    console.log('Database Error: ', err);
+    throw new Error('Failed to fetch circuit.');
   }
 }
