@@ -43,7 +43,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 * No results message on tables
 * Instructions on setting up the database and deploying the application
 * Move DB to new region
-* GitHub link
 * Driver comparisons
 * Constructor comparisons
 * Circuit comparisons
