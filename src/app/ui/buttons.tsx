@@ -12,7 +12,7 @@ export function BackButton() {
   return (
     <button
       onClick={goBack}
-      className='bg-white hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-white rounded'
+      className='bg-black text-white hover:bg-white hover:text-black font-semibold py-1 px-4 border border-gray-400 rounded shadow'
     >
       Back
     </button>

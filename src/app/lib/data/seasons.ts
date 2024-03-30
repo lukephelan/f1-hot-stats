@@ -19,7 +19,7 @@ export async function fetchFilteredSeasons(query: string, currentPage: number) {
   `;
     return seasons.rows;
   } catch (err) {
-    console.log('Database Error: ', err);
+    console.error('Database Error: ', err);
     throw new Error('Failed to fetch seasons.');
   }
 }
@@ -50,7 +50,7 @@ export async function fetchSeason(seasonId: string) {
     `;
     return seasons.rows[0];
   } catch (err) {
-    console.log('Database Error: ', err);
+    console.error('Database Error: ', err);
     throw new Error('Failed to fetch season.');
   }
 }

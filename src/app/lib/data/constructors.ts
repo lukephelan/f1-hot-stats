@@ -25,7 +25,7 @@ export async function fetchFilteredConstructors(
   `;
     return constructors.rows;
   } catch (err) {
-    console.log('Database Error: ', err);
+    console.error('Database Error: ', err);
     throw new Error('Failed to fetch constructors.');
   }
 }
@@ -57,7 +57,7 @@ export async function fetchConstructor(constructorId: string) {
     `;
     return constructors.rows[0];
   } catch (err) {
-    console.log('Database Error: ', err);
+    console.error('Database Error: ', err);
     throw new Error('Failed to fetch constructor.');
   }
 }

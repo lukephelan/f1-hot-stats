@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Page() {
   return (
-    <div className='w-full'>
+    <div className='w-full rounded-lg bg-white text-black p-5 shadow-md'>
       <div className='flex w-full items-center justify-between pb-5'>
         <h1 className='text-2xl'>Acknowledgements</h1>
       </div>
