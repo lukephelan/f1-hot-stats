@@ -28,7 +28,8 @@ export default function NavLinks() {
               className={clsx(
                 'flex h-[48px] grow items-center justify-center gap-2 rounded-md p-3 text-sm font-medium hover:bg-red-600 hover:text-red-100 md:flex-none md:justify-start md:p-2 md:px-3',
                 {
-                  'bg-slate-100 text-slate-600': pathname === link.href,
+                  'bg-slate-100 text-slate-600':
+                    pathname.split('/')[1] === link.href.split('/')[1],
                 }
               )}
             >
