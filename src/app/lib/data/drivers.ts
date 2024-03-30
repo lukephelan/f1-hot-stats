@@ -213,15 +213,30 @@ async function fetchDriverChampionships(driverId: string) {
     `;
     const years = championships.rows.map((r) => r.championship_year).join(', ');
     const wins = championships.rows.length;
-    return wins ? `${wins} (${years})` : wins;
+    return { wins, years };
   } catch (err) {
     console.error('Database Error: ', err);
     throw new Error('Failed to fetch driver champsionships.');
   }
 }
 
+async function fetchPoles(driverId: string) {
+  try {
+    const poles = await sql`
+    SELECT count(*)
+    FROM qualifying
+    WHERE "driverId" = ${driverId}
+    AND position = 1;
+    `;
+    return Number(poles.rows[0].count);
+  } catch (err) {
+    console.error('Database Error: ', err);
+    throw new Error('Failed to fetch driver poles.');
+  }
+}
+
 export async function fetchDriverStats(driverId: string) {
-  const [championships, wins, podiums, careerPoints, entries, starts] =
+  const [championships, wins, podiums, careerPoints, entries, starts, poles] =
     await Promise.all([
       fetchDriverChampionships(driverId),
       fetchWins(driverId),
@@ -229,6 +244,7 @@ export async function fetchDriverStats(driverId: string) {
       fetchCareerPoints(driverId),
       fetchEntries(driverId),
       fetchFirstAndLastStart(driverId),
+      fetchPoles(driverId),
     ]);
-  return { championships, wins, podiums, careerPoints, entries, starts };
+  return { championships, wins, podiums, careerPoints, entries, starts, poles };
 }
