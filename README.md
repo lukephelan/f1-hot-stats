@@ -31,11 +31,19 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### TO-DO:
 
-* Detail pages
+* Constructor detail page
+* Season detail page
+* Circuit detail page
+* Page header component
 * Error page
 * Responsive menu
+* Dark mode / light mode
 * Stats, charts, graphs
 * Improved styling
 * No results message on tables
 * Instructions on setting up the database and deploying the application
 * Move DB to new region
+* GitHub link
+* Driver comparisons
+* Constructor comparisons
+* Circuit comparisons

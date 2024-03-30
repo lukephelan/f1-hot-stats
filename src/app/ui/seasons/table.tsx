@@ -1,4 +1,4 @@
-import { fetchFilteredSeasons } from '@/app/lib/data';
+import { fetchFilteredSeasons } from '@/app/lib/data/seasons';
 import Table from '@/app/ui/table';
 
 export default async function SeasonsTable({

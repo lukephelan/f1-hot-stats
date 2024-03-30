@@ -1,4 +1,4 @@
-import { fetchFilteredDrivers } from '@/app/lib/data';
+import { fetchFilteredDrivers } from '@/app/lib/data/drivers';
 import Table from '@/app/ui/table';
 
 export default async function DriversTable({

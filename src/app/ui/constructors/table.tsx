@@ -1,4 +1,4 @@
-import { fetchFilteredConstructors } from '@/app/lib/data';
+import { fetchFilteredConstructors } from '@/app/lib/data/constructors';
 import Table from '@/app/ui/table';
 
 export default async function ConstructorsTable({
