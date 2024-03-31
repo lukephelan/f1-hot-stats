@@ -120,8 +120,6 @@ async function fetchCareerPoints(driverId: string) {
   }
 }
 
-// starts is different though, e.g. senna has 162 entries, but 161 starts
-// so we could do another one for starts
 async function fetchEntries(driverId: string) {
   try {
     const entries = await sql`
@@ -181,7 +179,7 @@ async function fetchFirstAndLastStart(driverId: string) {
   }
 }
 
-async function fetchDriverChampionships(driverId: string) {
+async function fetchChampionships(driverId: string) {
   try {
     const championships = await sql`
     SELECT
@@ -238,7 +236,7 @@ async function fetchPoles(driverId: string) {
 export async function fetchDriverStats(driverId: string) {
   const [championships, wins, podiums, careerPoints, entries, starts, poles] =
     await Promise.all([
-      fetchDriverChampionships(driverId),
+      fetchChampionships(driverId),
       fetchWins(driverId),
       fetchPodiums(driverId),
       fetchCareerPoints(driverId),
