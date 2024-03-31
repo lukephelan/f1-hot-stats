@@ -47,7 +47,7 @@ export async function fetchDriversPages(query: string) {
     const totalPages = Math.ceil(totalCount / PAGE_LIMIT);
     return { totalPages, totalCount };
   } catch (error) {
-    console.error('Database Error: ', error);
+    console.error('Database Error:', error);
     throw new Error('Failed to fetch total number of drivers.');
   }
 }

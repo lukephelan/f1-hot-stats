@@ -31,7 +31,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### TO-DO:
 
-* Circuit detail page
+* Refactor components into the UI folder
+* No results message for races
+* Qualifying deltas
+* Race/sprint position changes
 * Page header component
 * Error page
 * Responsive menu
