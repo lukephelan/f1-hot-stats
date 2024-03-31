@@ -27,7 +27,7 @@ export async function fetchFilteredDrivers(query: string, currentPage: number) {
   `;
     return drivers.rows;
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch drivers.');
   }
 }
@@ -67,7 +67,7 @@ export async function fetchDriver(driverId: string) {
     `;
     return drivers.rows[0];
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch driver.');
   }
 }
@@ -82,7 +82,7 @@ async function fetchWins(driverId: string) {
     `;
     return Number(wins.rows[0].count);
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch driver wins.');
   }
 }
@@ -97,7 +97,7 @@ async function fetchPodiums(driverId: string) {
     `;
     return Number(podiums.rows[0].count);
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch driver podiums.');
   }
 }
@@ -115,7 +115,7 @@ async function fetchCareerPoints(driverId: string) {
     `;
     return Number(points.rows[0].total_points);
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch driver career points.');
   }
 }
@@ -129,7 +129,7 @@ async function fetchEntries(driverId: string) {
     `;
     return Number(entries.rows[0].count);
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch driver entries.');
   }
 }
@@ -174,7 +174,7 @@ async function fetchFirstAndLastStart(driverId: string) {
       lastStartDate,
     };
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch driver starts.');
   }
 }
@@ -213,7 +213,7 @@ async function fetchChampionships(driverId: string) {
     const wins = championships.rows.length;
     return { wins, years };
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch driver champsionships.');
   }
 }
@@ -228,7 +228,7 @@ async function fetchPoles(driverId: string) {
     `;
     return Number(poles.rows[0].count);
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch driver poles.');
   }
 }

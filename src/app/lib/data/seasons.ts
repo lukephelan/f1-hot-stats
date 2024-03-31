@@ -19,7 +19,7 @@ export async function fetchFilteredSeasons(query: string, currentPage: number) {
   `;
     return seasons.rows;
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch seasons.');
   }
 }
@@ -50,7 +50,7 @@ export async function fetchSeason(year: string) {
     `;
     return seasons.rows[0];
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch season.');
   }
 }
@@ -75,7 +75,7 @@ export async function fetchDriverStandings(year: string) {
     `;
     return standings.rows;
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch driver standings.');
   }
 }
@@ -100,7 +100,7 @@ export async function fetchConstructorStandings(year: string) {
     `;
     return standings.rows;
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch constructor standings.');
   }
 }
@@ -116,7 +116,7 @@ export async function fetchRaces(year: string) {
     `;
     return races.rows;
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch races.');
   }
 }
