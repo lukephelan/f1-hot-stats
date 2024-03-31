@@ -27,7 +27,7 @@ export async function fetchFilteredCircuits(
   `;
     return circuits.rows;
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch circuits.');
   }
 }
@@ -60,7 +60,7 @@ export async function fetchCircuit(circuitId: string) {
     `;
     return circuits.rows[0];
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch circuit.');
   }
 }

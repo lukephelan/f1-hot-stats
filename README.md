@@ -31,9 +31,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### TO-DO:
 
-* Season detail page
 * Circuit detail page
-* Races table and detail page
 * Page header component
 * Error page
 * Responsive menu

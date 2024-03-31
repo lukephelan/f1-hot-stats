@@ -9,6 +9,7 @@ const links = [
   { name: 'Drivers', href: '/drivers' },
   { name: 'Constructors', href: '/constructors' },
   { name: 'Seasons', href: '/seasons' },
+  { name: 'Races', href: '/races' },
   { name: 'Circuits', href: '/circuits' },
   {},
   { name: 'Acknowledgements', href: '/acknowledgements' },

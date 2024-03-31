@@ -22,6 +22,16 @@ export type Season = {
   url: string;
 };
 
+export type Race = {
+  raceId: number;
+  year: number;
+  round: number;
+  name: string;
+  date: string;
+  url: string;
+  circuit: string;
+};
+
 export type Circuit = {
   circuitId: number;
   circuitRef: string;

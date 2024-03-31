@@ -25,7 +25,7 @@ export async function fetchFilteredConstructors(
   `;
     return constructors.rows;
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch constructors.');
   }
 }
@@ -56,7 +56,7 @@ export async function fetchConstructor(constructorId: string) {
     `;
     return constructors.rows[0];
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch constructor.');
   }
 }
@@ -71,7 +71,7 @@ async function fetchWins(constructorId: string) {
     `;
     return Number(wins.rows[0].count);
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch constructor wins.');
   }
 }
@@ -86,7 +86,7 @@ async function fetchPodiums(constructorId: string) {
     `;
     return Number(podiums.rows[0].count);
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch constructor podiums.');
   }
 }
@@ -104,7 +104,7 @@ async function fetchCareerPoints(constructorId: string) {
     `;
     return Number(points.rows[0].total_points);
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch constructor career points.');
   }
 }
@@ -118,7 +118,7 @@ async function fetchEntries(constructorId: string) {
     `;
     return Number(entries.rows[0].count);
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch constructor entries.');
   }
 }
@@ -163,7 +163,7 @@ async function fetchFirstAndLastStart(constructorId: string) {
       lastStartDate,
     };
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch constructor starts.');
   }
 }
@@ -202,7 +202,7 @@ async function fetchChampionships(constructorId: string) {
     const wins = championships.rows.length;
     return { wins, years };
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch constructor champsionships.');
   }
 }
@@ -217,7 +217,7 @@ async function fetchPoles(constructorId: string) {
     `;
     return Number(poles.rows[0].count);
   } catch (err) {
-    console.error('Database Error: ', err);
+    console.error('Database Error:', err);
     throw new Error('Failed to fetch constructor poles.');
   }
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter, usePathname } from 'next/navigation';
+import clsx from 'clsx';
 
 function formatValue(value: string | number | null) {
   if (value === 0) return value;
@@ -12,18 +13,22 @@ export function MobileTable({
   rows,
   rowId,
   onRowClick,
+  enableRowNavigation,
 }: {
   headers: { key: string; label: string }[];
   rows: Record<string, string | number | null>[];
   rowId: string;
   onRowClick: Function;
+  enableRowNavigation: boolean;
 }) {
   return (
     <div className='md:hidden'>
       {rows?.map((row) => (
         <div
           key={row[rowId]}
-          className='mb-2 w-full rounded-md bg-white p-4 cursor-pointer'
+          className={clsx('mb-2 w-full rounded-md bg-white p-4', {
+            'cursor-pointer': enableRowNavigation,
+          })}
           onClick={() => onRowClick(row[rowId])}
         >
           {headers.map(({ key }) => (
@@ -42,11 +47,13 @@ export function DesktopTable({
   rows,
   rowId,
   onRowClick,
+  enableRowNavigation,
 }: {
   headers: { key: string; label: string }[];
   rows: Record<string, string | number | null>[];
   rowId: string;
   onRowClick: Function;
+  enableRowNavigation: boolean;
 }) {
   return (
     <table className='hidden min-w-full text-gray-900 md:table'>
@@ -63,7 +70,12 @@ export function DesktopTable({
         {rows.map((row) => (
           <tr
             key={row[rowId]}
-            className='w-full border-b py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg cursor-pointer'
+            className={clsx(
+              'w-full border-b py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg',
+              {
+                'cursor-pointer': enableRowNavigation,
+              }
+            )}
             onClick={() => onRowClick(row[rowId])}
           >
             {headers.map(({ key }) => (
@@ -83,11 +95,13 @@ export default function Table({
   rows,
   rowId,
   path,
+  enableRowNavigation = true,
 }: {
   headers: { key: string; label: string }[];
   rows: Record<string, string | number | null>[];
   rowId: string;
   path?: string;
+  enableRowNavigation?: boolean;
 }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -102,12 +116,14 @@ export default function Table({
         headers={headers}
         rows={rows}
         rowId={rowId}
+        enableRowNavigation={enableRowNavigation}
         onRowClick={onRowClick}
       />
       <DesktopTable
         headers={headers}
         rows={rows}
         rowId={rowId}
+        enableRowNavigation={enableRowNavigation}
         onRowClick={onRowClick}
       />
     </>
