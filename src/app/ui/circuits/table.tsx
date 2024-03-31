@@ -12,5 +12,5 @@ export default async function CircuitsTable({
 }) {
   const circuits = await fetchFilteredCircuits(query, currentPage);
 
-  return <Table headers={headers} rows={circuits} rowId={'circuitId'} />;
+  return <Table headers={headers} rows={circuits} rowId='circuitId' />;
 }

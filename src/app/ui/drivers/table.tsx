@@ -12,5 +12,5 @@ export default async function DriversTable({
 }) {
   const drivers = await fetchFilteredDrivers(query, currentPage);
 
-  return <Table headers={headers} rows={drivers} rowId={'driverId'} />;
+  return <Table headers={headers} rows={drivers} rowId='driverId' />;
 }
