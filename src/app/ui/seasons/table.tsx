@@ -12,5 +12,5 @@ export default async function SeasonsTable({
 }) {
   const seasons = await fetchFilteredSeasons(query, currentPage);
 
-  return <Table headers={headers} rows={seasons} rowId={'year'} />;
+  return <Table headers={headers} rows={seasons} rowId='year' />;
 }

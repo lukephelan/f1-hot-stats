@@ -13,7 +13,7 @@ export async function fetchFilteredDrivers(query: string, currentPage: number) {
       CONCAT(drivers.forename, ' ', drivers.surname) AS name,
       drivers.number,
       drivers.code,
-      TO_CHAR(drivers.dob, 'D Month YYYY') AS dob,
+      TO_CHAR(drivers.dob, 'DD Month YYYY') AS dob,
       drivers.nationality
     FROM drivers
     WHERE
@@ -60,7 +60,7 @@ export async function fetchDriver(driverId: string) {
       CONCAT(drivers.forename, ' ', drivers.surname) AS name,
       drivers.number,
       drivers.code,
-      TO_CHAR(drivers.dob, 'D Month YYYY') AS dob,
+      TO_CHAR(drivers.dob, 'DD Month YYYY') AS dob,
       drivers.nationality
       FROM drivers
       WHERE drivers."driverId" = ${driverId}

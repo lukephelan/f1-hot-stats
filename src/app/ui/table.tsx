@@ -2,6 +2,11 @@
 
 import { useRouter, usePathname } from 'next/navigation';
 
+function formatValue(value: string | number | null) {
+  if (value === 0) return value;
+  return value || '—';
+}
+
 export function MobileTable({
   headers,
   rows,
@@ -23,7 +28,7 @@ export function MobileTable({
         >
           {headers.map(({ key }) => (
             <div key={key} className='border-b py-2'>
-              {row[key] || '—'}
+              {formatValue(row[key])}
             </div>
           ))}
         </div>
@@ -63,7 +68,7 @@ export function DesktopTable({
           >
             {headers.map(({ key }) => (
               <td key={key} className='whitespace-nowrap px-3 py-3'>
-                {row[key] || '—'}
+                {formatValue(row[key])}
               </td>
             ))}
           </tr>
@@ -77,16 +82,18 @@ export default function Table({
   headers,
   rows,
   rowId,
+  path,
 }: {
   headers: { key: string; label: string }[];
   rows: Record<string, string | number | null>[];
   rowId: string;
+  path?: string;
 }) {
   const router = useRouter();
   const pathname = usePathname();
 
   const onRowClick = (rowId: string | number) => {
-    router.push(`${pathname}/${rowId}`);
+    router.push(`${path || pathname}/${rowId}`);
   };
 
   return (

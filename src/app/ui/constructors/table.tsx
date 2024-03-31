@@ -12,7 +12,5 @@ export default async function ConstructorsTable({
 }) {
   const constructors = await fetchFilteredConstructors(query, currentPage);
 
-  return (
-    <Table headers={headers} rows={constructors} rowId={'constructorId'} />
-  );
+  return <Table headers={headers} rows={constructors} rowId='constructorId' />;
 }

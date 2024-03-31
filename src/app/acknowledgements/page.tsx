@@ -11,7 +11,7 @@ export default function Page() {
         <Link
           href='http://ergast.com/mrd/'
           target='_blank'
-          className={'text-blue-500'}
+          className='text-blue-500'
         >
           Ergast
         </Link>{' '}
