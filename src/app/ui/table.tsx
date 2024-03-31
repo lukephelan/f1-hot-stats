@@ -29,7 +29,7 @@ export function MobileTable({
           className={clsx('mb-2 w-full rounded-md bg-white p-4', {
             'cursor-pointer': enableRowNavigation,
           })}
-          onClick={() => onRowClick(row[rowId])}
+          onClick={() => enableRowNavigation && onRowClick(row[rowId])}
         >
           {headers.map(({ key }) => (
             <div key={key} className='border-b py-2'>
@@ -76,7 +76,7 @@ export function DesktopTable({
                 'cursor-pointer': enableRowNavigation,
               }
             )}
-            onClick={() => onRowClick(row[rowId])}
+            onClick={() => enableRowNavigation && onRowClick(row[rowId])}
           >
             {headers.map(({ key }) => (
               <td key={key} className='whitespace-nowrap px-3 py-3'>

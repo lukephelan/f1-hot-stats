@@ -86,7 +86,7 @@ async function QualifyingResults({ raceId }: { raceId: string }) {
   const QUALIFY_HEADERS = [
     {
       key: 'position',
-      label: 'position',
+      label: 'Position',
     },
     {
       key: 'driver',
