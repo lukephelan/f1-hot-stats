@@ -12,7 +12,7 @@ function DriverName({ driver }: { driver: Driver }) {
   );
 }
 
-function DriverBio({
+function Bio({
   driver,
   starts,
 }: {
@@ -51,19 +51,17 @@ export default async function Page({ params }: { params: { id: string } }) {
         <DriverName driver={driver} />
         <BackButton />
       </div>
-      <DriverBio driver={driver} starts={stats.starts} />
+      <Bio driver={driver} starts={stats.starts} />
       <div className='my-4 grid grid-cols-2 gap-4'>
-        <StatCard label='Championships' value={stats.championships.wins} />
+        <StatCard
+          label='Driver Championships'
+          value={stats.championships.wins}
+        />
         <StatCard label='Wins' value={stats.wins} />
         <StatCard label='Career Points' value={stats.careerPoints} />
         <StatCard label='Podiums' value={stats.podiums} />
         <StatCard label='Poles' value={stats.poles} />
         <StatCard label='Entries' value={stats.entries} />
-      </div>
-      <div className='text-right'>
-        <small className='text-slate-500'>
-          *Pole count may be incorrect due to insufficient data or penalties.
-        </small>
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ export type Driver = {
   url: string;
 };
 
-export type Constructor = {
+export type F1Constructor = {
   constructorId: number;
   constructorRef: string;
   name: string;

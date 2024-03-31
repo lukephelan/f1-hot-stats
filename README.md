@@ -31,12 +31,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### TO-DO:
 
-* Constructor detail page
 * Season detail page
 * Circuit detail page
 * Page header component
 * Error page
 * Responsive menu
+* Clear button on search
 * Dark mode / light mode
 * Stats, charts, graphs
 * Improved styling
