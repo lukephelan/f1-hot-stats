@@ -20,7 +20,10 @@ export default function Pagination({
   const currentPage = Number(searchParams.get('page')) || 1;
   const allPages = generatePagination(currentPage, totalPages);
 
-  const startRange = currentPage * pageLimit - pageLimit + 1;
+  const startRange = Math.min(
+    currentPage * pageLimit - pageLimit + 1,
+    totalCount
+  );
   const endRange = Math.min(startRange + pageLimit - 1, totalCount);
 
   const createPageURL = (pageNumber: number | string) => {
@@ -111,7 +114,7 @@ function PaginationNumber({
         isActive,
       'text-gray-700': position === 'middle',
       'ring-1 ring-inset ring-gray-300 focus:outline-offset-0': !isActive,
-      'z-10 bg-red-600 border-red-600 text-white': isActive,
+      'z-10 bg-cyan-600 border-cyan-600 text-white': isActive,
       'hover:bg-gray-100': !isActive && position !== 'middle',
     }
   );

@@ -16,7 +16,7 @@ export function BackButton({ href }: { href?: string }) {
   return (
     <button
       onClick={goBack}
-      className='bg-black text-white hover:bg-white hover:text-black font-semibold py-1 px-4 hover:border-black border rounded shadow'
+      className='bg-cyan-600 text-white hover:bg-cyan-900 font-semibold py-1 px-4 border rounded shadow'
     >
       Back
     </button>

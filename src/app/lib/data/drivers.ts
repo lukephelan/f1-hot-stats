@@ -19,6 +19,7 @@ export async function fetchFilteredDrivers(query: string, currentPage: number) {
     WHERE
       drivers.forename ILIKE ${`%${query}%`} OR
       drivers.surname ILIKE ${`%${query}%`} OR
+      CONCAT(drivers.forename, ' ', drivers.surname) ILIKE ${`%${query}%`} OR
       drivers.number::text ILIKE ${`%${query}%`} OR
       drivers.nationality::text ILIKE ${`%${query}%`}
     ORDER BY
@@ -39,6 +40,7 @@ export async function fetchDriversPages(query: string) {
     WHERE
       drivers.forename ILIKE ${`%${query}%`} OR
       drivers.surname ILIKE ${`%${query}%`} OR
+      CONCAT(drivers.forename, ' ', drivers.surname) ILIKE ${`%${query}%`} OR
       drivers.number::text ILIKE ${`%${query}%`} OR
       drivers.nationality::text ILIKE ${`%${query}%`}
   `;
