@@ -27,7 +27,8 @@ export function MobileTable({
         <div
           key={row[rowId]}
           className={clsx('mb-2 w-full rounded-md bg-white p-4', {
-            'cursor-pointer': enableRowNavigation,
+            'cursor-pointer hover:bg-cyan-600 hover:text-white':
+              enableRowNavigation,
           })}
           onClick={() => enableRowNavigation && onRowClick(row[rowId])}
         >
@@ -73,7 +74,8 @@ export function DesktopTable({
             className={clsx(
               'w-full border-b py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg',
               {
-                'cursor-pointer': enableRowNavigation,
+                'cursor-pointer hover:bg-cyan-600 hover:text-white':
+                  enableRowNavigation,
               }
             )}
             onClick={() => enableRowNavigation && onRowClick(row[rowId])}
