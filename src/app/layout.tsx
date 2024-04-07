@@ -19,10 +19,10 @@ export default function RootLayout({
     <html lang='en'>
       <body className={inter.className}>
         <div className='flex h-screen flex-col md:flex-row md:overflow-hidden'>
-          <div className='w-full flex-none md:w-64 hidden md:block'>
+          <div className='w-full flex-none md:w-64 md:block'>
             <SideNav />
           </div>
-          <div className='flex-grow p-6 md:overflow-y-auto md:p-4 bg-hero bg-no-repeat bg-cover bg-bottom bg-fixed'>
+          <div className='flex-grow p-6 md:overflow-y-auto md:p-4d'>
             {children}
           </div>
         </div>

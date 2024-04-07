@@ -34,14 +34,14 @@ export default function NavLinks() {
                 }
               )}
             >
-              <p className='hidden md:block'>{link.name}</p>
+              <p className='md:block'>{link.name}</p>
             </Link>
           );
         } else {
           return (
             <div
               key={`space-${index}`}
-              className='hidden h-auto w-full grow rounded-md md:block'
+              className='h-auto w-full grow rounded-md md:block'
             ></div>
           );
         }
