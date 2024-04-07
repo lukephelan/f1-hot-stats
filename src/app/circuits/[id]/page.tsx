@@ -1,4 +1,3 @@
-import { Circuit } from '@/app/lib/definitions';
 import {
   fetchCircuit,
   fetchRaces,
@@ -7,6 +6,7 @@ import {
 import { BackButton } from '@/app/ui/buttons';
 import Table from '@/app/ui/table';
 import Pagination from '@/app/ui/pagination';
+import Bio from '@/app/ui/circuits/bio';
 
 async function Races({
   circuitId,
@@ -54,15 +54,6 @@ async function Races({
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-function Bio({ circuit }: { circuit: Circuit }) {
-  return (
-    <div className='bg-white rounded-lg text-black w-50 my-4 p-5 shadow-md'>
-      <div>Location: {circuit.location}</div>
-      <div>Country: {circuit.country}</div>
     </div>
   );
 }

@@ -1,4 +1,3 @@
-import { Race } from '@/app/lib/definitions';
 import {
   fetchRace,
   fetchRaceResults,
@@ -6,7 +5,8 @@ import {
   fetchQualifyingResults,
 } from '@/app/lib/data/races';
 import { BackButton } from '@/app/ui/buttons';
-import { formatDateToLocal } from '@/app/lib/utils';
+import Bio from '@/app/ui/races/bio';
+
 import Table from '@/app/ui/table';
 
 const HEADERS = [
@@ -125,16 +125,6 @@ async function QualifyingResults({ raceId }: { raceId: string }) {
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-function Bio({ race }: { race: Race }) {
-  return (
-    <div className='bg-white rounded-lg text-black w-50 my-4 p-5 shadow-md'>
-      <div>Circuit: {race.circuit}</div>
-      <div>Date: {formatDateToLocal(race.date.toString())}</div>
-      <div>Round: {race.round}</div>
     </div>
   );
 }

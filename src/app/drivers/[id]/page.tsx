@@ -1,45 +1,7 @@
-import { Driver } from '@/app/lib/definitions';
 import { fetchDriver, fetchDriverStats } from '@/app/lib/data/drivers';
 import { BackButton } from '@/app/ui/buttons';
 import { StatCard } from '@/app/ui/stats';
-import { formatDateToLocal } from '@/app/lib/utils';
-
-function DriverName({ driver }: { driver: Driver }) {
-  return (
-    <h1 className='text-2xl'>
-      {driver.name} {driver.code && `(${driver.code})`}
-    </h1>
-  );
-}
-
-function Bio({
-  driver,
-  starts,
-}: {
-  driver: Driver;
-  starts: {
-    firstStartName: string;
-    lastStartName: string;
-    firstStartDate: Date;
-    lastStartDate: Date;
-  };
-}) {
-  return (
-    <div className='bg-white rounded-lg text-black w-50 my-4 p-5 shadow-md'>
-      {driver.number && <div>Number: {driver.number}</div>}
-      {driver.code && <div>Code: {driver.code}</div>}
-      <div>Nationality: {driver.nationality}</div>
-      <div>
-        First start: {starts.firstStartName} (
-        {formatDateToLocal(starts.firstStartDate.toString())})
-      </div>
-      <div>
-        Last start: {starts.lastStartName} (
-        {formatDateToLocal(starts.lastStartDate.toString())})
-      </div>
-    </div>
-  );
-}
+import Bio from '@/app/ui/drivers/bio';
 
 export default async function Page({ params }: { params: { id: string } }) {
   const driver = await fetchDriver(params.id);
@@ -48,7 +10,9 @@ export default async function Page({ params }: { params: { id: string } }) {
   return (
     <div className='w-full'>
       <div className='flex w-full items-center justify-between p-5 rounded-lg bg-white text-black shadow-md'>
-        <DriverName driver={driver} />
+        <h1 className='text-2xl'>
+          {driver.name} {driver.code && `(${driver.code})`}
+        </h1>
         <BackButton />
       </div>
       <Bio driver={driver} starts={stats.starts} />

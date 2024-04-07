@@ -1,38 +1,10 @@
-import { F1Constructor } from '@/app/lib/definitions';
 import {
   fetchConstructor,
   fetchConstructorStats,
 } from '@/app/lib/data/constructors';
 import { BackButton } from '@/app/ui/buttons';
 import { StatCard } from '@/app/ui/stats';
-import { formatDateToLocal } from '@/app/lib/utils';
-
-function Bio({
-  f1Constructor,
-  starts,
-}: {
-  f1Constructor: F1Constructor;
-  starts: {
-    firstStartName: string;
-    lastStartName: string;
-    firstStartDate: Date;
-    lastStartDate: Date;
-  };
-}) {
-  return (
-    <div className='bg-white rounded-lg text-black w-50 my-4 p-5 shadow-md'>
-      <div>Nationality: {f1Constructor.nationality}</div>
-      <div>
-        First start: {starts.firstStartName} (
-        {formatDateToLocal(starts.firstStartDate.toString())})
-      </div>
-      <div>
-        Last start: {starts.lastStartName} (
-        {formatDateToLocal(starts.lastStartDate.toString())})
-      </div>
-    </div>
-  );
-}
+import Bio from '@/app/ui/constructors/bio';
 
 export default async function Page({ params }: { params: { id: string } }) {
   const constructor = await fetchConstructor(params.id);
