@@ -13,11 +13,9 @@ export function TableRowSkeleton({ columnCount }: { columnCount: number }) {
 export function MobileRowSkeleton({ columnCount }: { columnCount: number }) {
   return (
     <div className='mb-2 w-full rounded-md bg-white p-4'>
-      {Array.from({ length: columnCount }, (_, i) => (
-        <div className='whitespace-nowrap px-3 py-3' key={i}>
-          <div className='h-5 w-32 rounded bg-gray-100'></div>
-        </div>
-      ))}
+      <div className='whitespace-nowrap px-3 py-1'>
+        <div className='h-5 w-32 rounded bg-gray-100'></div>
+      </div>
     </div>
   );
 }

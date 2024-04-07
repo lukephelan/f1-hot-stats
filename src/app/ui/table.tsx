@@ -32,11 +32,7 @@ export function MobileTable({
           })}
           onClick={() => enableRowNavigation && onRowClick(row[rowId])}
         >
-          {headers.map(({ key }) => (
-            <div key={key} className='border-b py-2'>
-              {formatValue(row[key])}
-            </div>
-          ))}
+          <div key={headers[0].key}>{formatValue(row[headers[0].key])}</div>
         </div>
       ))}
     </div>
