@@ -1,5 +1,6 @@
 import { fetchDriversPages } from '@/app/lib/data/drivers';
 import { Suspense } from 'react';
+import PageHeader from '@/app/ui/page-header';
 import { TableSkeleton } from '@/app/ui/skeletons';
 import Search from '@/app/ui/search';
 import DriversTable from '@/app/ui/drivers/table';
@@ -43,9 +44,7 @@ export default async function Page({
 
   return (
     <div className='w-full'>
-      <div className='flex w-full items-center justify-between p-5 rounded-lg bg-white text-black shadow-md'>
-        <h1 className='text-2xl'>Drivers</h1>
-      </div>
+      <PageHeader title='Drivers' />
       <div className='flex items-center justify-between gap-2 mt-2 md:mt-6'>
         <Search placeholder='Search drivers...' />
       </div>

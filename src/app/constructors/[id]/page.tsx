@@ -2,7 +2,7 @@ import {
   fetchConstructor,
   fetchConstructorStats,
 } from '@/app/lib/data/constructors';
-import { BackButton } from '@/app/ui/buttons';
+import PageHeader from '@/app/ui/page-header';
 import { StatCard } from '@/app/ui/stats';
 import Bio from '@/app/ui/constructors/bio';
 
@@ -12,10 +12,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <div className='w-full'>
-      <div className='flex w-full items-center justify-between p-5 rounded-lg bg-white text-black shadow-md'>
-        <h1 className='text-2xl'>{constructor.name}</h1>
-        <BackButton />
-      </div>
+      <PageHeader title={constructor.name} showBackButton={true} />
       <Bio f1Constructor={constructor} starts={stats.starts} />
       <div className='my-4 grid grid-cols-2 gap-4'>
         <StatCard

@@ -1,20 +1,16 @@
 import { fetchDriver, fetchDriverStats } from '@/app/lib/data/drivers';
-import { BackButton } from '@/app/ui/buttons';
+import PageHeader from '@/app/ui/page-header';
 import { StatCard } from '@/app/ui/stats';
 import Bio from '@/app/ui/drivers/bio';
 
 export default async function Page({ params }: { params: { id: string } }) {
   const driver = await fetchDriver(params.id);
   const stats = await fetchDriverStats(params.id);
+  const title = driver.name + (driver.code && ` (${driver.code})`);
 
   return (
     <div className='w-full'>
-      <div className='flex w-full items-center justify-between p-5 rounded-lg bg-white text-black shadow-md'>
-        <h1 className='text-2xl'>
-          {driver.name} {driver.code && `(${driver.code})`}
-        </h1>
-        <BackButton />
-      </div>
+      <PageHeader title={title} showBackButton={true} />
       <Bio driver={driver} starts={stats.starts} />
       <div className='my-4 grid grid-cols-2 gap-4'>
         <StatCard

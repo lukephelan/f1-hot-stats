@@ -3,7 +3,7 @@ import {
   fetchRaces,
   fetchRacesPages,
 } from '@/app/lib/data/circuits';
-import { BackButton } from '@/app/ui/buttons';
+import PageHeader from '@/app/ui/page-header';
 import Table from '@/app/ui/table';
 import Pagination from '@/app/ui/pagination';
 import Bio from '@/app/ui/circuits/bio';
@@ -72,10 +72,7 @@ export default async function Page({
 
   return (
     <div className='w-full'>
-      <div className='flex w-full items-center justify-between p-5 rounded-lg bg-white text-black shadow-md'>
-        <h1 className='text-2xl'>{circuit.name}</h1>
-        <BackButton href='/circuits' />
-      </div>
+      <PageHeader title={circuit.name} showBackButton={true} />
       <Bio circuit={circuit} />
       <Races circuitId={circuitId} searchParams={searchParams} />
     </div>

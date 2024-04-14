@@ -4,7 +4,7 @@ import {
   fetchSprintResults,
   fetchQualifyingResults,
 } from '@/app/lib/data/races';
-import { BackButton } from '@/app/ui/buttons';
+import PageHeader from '@/app/ui/page-header';
 import Bio from '@/app/ui/races/bio';
 
 import Table from '@/app/ui/table';
@@ -135,10 +135,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <div className='w-full'>
-      <div className='flex w-full items-center justify-between p-5 rounded-lg bg-white text-black shadow-md'>
-        <h1 className='text-2xl'>{race.name}</h1>
-        <BackButton />
-      </div>
+      <PageHeader title={race.name} showBackButton={true} />
       <Bio race={race} />
       <RaceResults raceId={raceId} />
       <SprintResults raceId={raceId} />
