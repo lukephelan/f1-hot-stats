@@ -1,5 +1,6 @@
 import { fetchSeasonsPages } from '@/app/lib/data/seasons';
 import { Suspense } from 'react';
+import PageHeader from '@/app/ui/page-header';
 import { TableSkeleton } from '@/app/ui/skeletons';
 import Search from '@/app/ui/search';
 import SeasonsTable from '@/app/ui/seasons/table';
@@ -27,9 +28,7 @@ export default async function Page({
 
   return (
     <div className='w-full'>
-      <div className='flex w-full items-center justify-between p-5 rounded-lg bg-white text-black shadow-md'>
-        <h1 className='text-2xl'>Seasons</h1>
-      </div>
+      <PageHeader title='Seasons' />
       <div className='flex items-center justify-between gap-2 mt-2 md:mt-6'>
         <Search placeholder='Search seasons...' />
       </div>

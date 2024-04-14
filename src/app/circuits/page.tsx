@@ -1,5 +1,6 @@
 import { fetchCircuitsPages } from '@/app/lib/data/circuits';
 import { Suspense } from 'react';
+import PageHeader from '@/app/ui/page-header';
 import { TableSkeleton } from '@/app/ui/skeletons';
 import Search from '@/app/ui/search';
 import CircuitsTable from '@/app/ui/circuits/table';
@@ -35,9 +36,7 @@ export default async function Page({
 
   return (
     <div className='w-full'>
-      <div className='flex w-full items-center justify-between p-5 rounded-lg bg-white text-black shadow-md'>
-        <h1 className='text-2xl'>Circuits</h1>
-      </div>
+      <PageHeader title='Circuits' />
       <div className='flex items-center justify-between gap-2 mt-2 md:mt-6'>
         <Search placeholder='Search circuits...' />
       </div>

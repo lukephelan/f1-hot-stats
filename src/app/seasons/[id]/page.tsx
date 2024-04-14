@@ -4,7 +4,7 @@ import {
   fetchConstructorStandings,
   fetchRaces,
 } from '@/app/lib/data/seasons';
-import { BackButton } from '@/app/ui/buttons';
+import PageHeader from '@/app/ui/page-header';
 import Table from '@/app/ui/table';
 
 async function DriverStandings({ year }: { year: string }) {
@@ -124,10 +124,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <div className='w-full'>
-      <div className='flex w-full items-center justify-between p-5 rounded-lg bg-white text-black shadow-md'>
-        <h1 className='text-2xl'>Season {season.year}</h1>
-        <BackButton />
-      </div>
+      <PageHeader title={`Season ${season.year}`} showBackButton={true} />
       <DriverStandings year={year} />
       <ConstructorStandings year={year} />
       <Races year={year} />

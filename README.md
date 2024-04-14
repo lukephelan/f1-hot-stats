@@ -31,7 +31,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### TO-DO:
 
-* Refactor components into the UI folder
 * Teams by year on the driver page
 * No results message for races
 * Qualifying deltas

@@ -1,12 +1,12 @@
-import { Race } from '@/app/lib/definitions';
 import {
   fetchRace,
   fetchRaceResults,
   fetchSprintResults,
   fetchQualifyingResults,
 } from '@/app/lib/data/races';
-import { BackButton } from '@/app/ui/buttons';
-import { formatDateToLocal } from '@/app/lib/utils';
+import PageHeader from '@/app/ui/page-header';
+import Bio from '@/app/ui/races/bio';
+
 import Table from '@/app/ui/table';
 
 const HEADERS = [
@@ -129,26 +129,13 @@ async function QualifyingResults({ raceId }: { raceId: string }) {
   );
 }
 
-function Bio({ race }: { race: Race }) {
-  return (
-    <div className='bg-white rounded-lg text-black w-50 my-4 p-5 shadow-md'>
-      <div>Circuit: {race.circuit}</div>
-      <div>Date: {formatDateToLocal(race.date.toString())}</div>
-      <div>Round: {race.round}</div>
-    </div>
-  );
-}
-
 export default async function Page({ params }: { params: { id: string } }) {
   const raceId = params.id;
   const race = await fetchRace(raceId);
 
   return (
     <div className='w-full'>
-      <div className='flex w-full items-center justify-between p-5 rounded-lg bg-white text-black shadow-md'>
-        <h1 className='text-2xl'>{race.name}</h1>
-        <BackButton />
-      </div>
+      <PageHeader title={race.name} showBackButton={true} />
       <Bio race={race} />
       <RaceResults raceId={raceId} />
       <SprintResults raceId={raceId} />
