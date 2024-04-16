@@ -1,11 +1,18 @@
-import { fetchDriver, fetchDriverStats } from '@/app/lib/data/drivers';
+import {
+  fetchDriver,
+  fetchDriverStats,
+  fetchDriverTeams,
+} from '@/app/lib/data/drivers';
 import PageHeader from '@/app/ui/page-header';
 import { StatCard } from '@/app/ui/stats';
 import Bio from '@/app/ui/drivers/bio';
+import DriverTeams from '@/app/ui/drivers/teams';
 
 export default async function Page({ params }: { params: { id: string } }) {
   const driver = await fetchDriver(params.id);
   const stats = await fetchDriverStats(params.id);
+  const driverTeams = await fetchDriverTeams(params.id);
+
   const title = driver.name + (driver.code && ` (${driver.code})`);
 
   return (
@@ -23,6 +30,7 @@ export default async function Page({ params }: { params: { id: string } }) {
         <StatCard label='Poles' value={stats.poles} />
         <StatCard label='Entries' value={stats.entries} />
       </div>
+      <DriverTeams driverTeams={driverTeams} />
     </div>
   );
 }

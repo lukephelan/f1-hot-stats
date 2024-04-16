@@ -13,7 +13,9 @@ export function StatCard({
   return (
     <div className='bg-white rounded-lg text-black w-50 shadow-md'>
       <div className='p-5 flex items-center justify-between'>
-        <div>{label}</div>
+        <div>
+          <span className='font-semibold'>{label}</span>
+        </div>
         <div>{formatValue(value)}</div>
       </div>
     </div>
