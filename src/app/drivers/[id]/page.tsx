@@ -13,7 +13,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   const stats = await fetchDriverStats(params.id);
   const driverTeams = await fetchDriverTeams(params.id);
 
-  const title = driver.name + (driver.code && ` (${driver.code})`);
+  const title = driver.name + (driver.code ? ` (${driver.code})` : '');
 
   return (
     <div className='w-full'>
