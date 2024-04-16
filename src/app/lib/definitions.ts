@@ -40,3 +40,9 @@ export type Circuit = {
   country: string;
   url: string;
 };
+
+export type DriverTeam = {
+  constructorId: number;
+  constructorName: string;
+  years: string;
+};

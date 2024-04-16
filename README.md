@@ -31,13 +31,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### TO-DO:
 
-* Teams by year on the driver page
+* More loading skeletons
 * No results message for races
 * Qualifying deltas
 * Race/sprint position changes
 * Page header component
 * Error page
-* Detail skeletons
 * Clear button on search
 * Dark mode / light mode
 * Stats, charts, graphs

@@ -15,13 +15,18 @@ export default function Bio({
 }) {
   return (
     <div className='bg-white rounded-lg text-black w-50 my-4 p-5 shadow-md'>
-      <div>Nationality: {f1Constructor.nationality}</div>
       <div>
-        First start: {starts.firstStartName} (
+        <span className='font-semibold'>Nationality:</span>{' '}
+        {f1Constructor.nationality}
+      </div>
+      <div>
+        <span className='font-semibold'>First start:</span>{' '}
+        {starts.firstStartName} (
         {formatDateToLocal(starts.firstStartDate.toString())})
       </div>
       <div>
-        Last start: {starts.lastStartName} (
+        <span className='font-semibold'>Last start:</span>{' '}
+        {starts.lastStartName} (
         {formatDateToLocal(starts.lastStartDate.toString())})
       </div>
     </div>
