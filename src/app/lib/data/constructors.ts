@@ -235,3 +235,30 @@ export async function fetchConstructorStats(constructorId: string) {
     ]);
   return { championships, wins, podiums, careerPoints, entries, starts, poles };
 }
+
+export async function fetchConstructorDrivers(constructorId: string) {
+  try {
+    const driverTeams = await sql`
+    SELECT 
+      drivers."driverId" AS driver_id,
+      CONCAT(drivers.forename, ' ', drivers.surname) AS driver_name,
+      STRING_AGG(DISTINCT DATE_PART('year', races.date)::text, ', ') AS years
+    FROM results
+    JOIN races ON results."raceId" = races."raceId"
+    JOIN drivers ON results."driverId" = drivers."driverId"
+    WHERE results."constructorId" = ${constructorId}
+    GROUP BY driver_name, driver_id
+    ORDER BY MAX(DATE_PART('year', races.date)) DESC;
+    `;
+    return driverTeams.rows.map((r) => {
+      return {
+        driverId: r.driver_id,
+        driverName: r.driver_name,
+        years: r.years,
+      };
+    });
+  } catch (err) {
+    console.error('Database Error:', err);
+    throw new Error('Failed to fetch constructor drivers.');
+  }
+}

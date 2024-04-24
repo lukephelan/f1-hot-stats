@@ -46,3 +46,9 @@ export type DriverTeam = {
   constructorName: string;
   years: string;
 };
+
+export type TeamdDriver = {
+  driverId: number;
+  driverName: string;
+  years: string;
+};

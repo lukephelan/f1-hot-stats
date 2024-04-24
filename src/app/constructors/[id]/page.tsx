@@ -1,14 +1,17 @@
 import {
   fetchConstructor,
+  fetchConstructorDrivers,
   fetchConstructorStats,
 } from '@/app/lib/data/constructors';
 import PageHeader from '@/app/ui/page-header';
 import { StatCard } from '@/app/ui/stats';
 import Bio from '@/app/ui/constructors/bio';
+import ConstructorDrivers from '@/app/ui/constructors/drivers';
 
 export default async function Page({ params }: { params: { id: string } }) {
   const constructor = await fetchConstructor(params.id);
   const stats = await fetchConstructorStats(params.id);
+  const constructorDrivers = await fetchConstructorDrivers(params.id);
 
   return (
     <div className='w-full'>
@@ -25,6 +28,7 @@ export default async function Page({ params }: { params: { id: string } }) {
         <StatCard label='Poles' value={stats.poles} />
         <StatCard label='Entries' value={stats.entries} />
       </div>
+      <ConstructorDrivers constructorDrivers={constructorDrivers} />
     </div>
   );
 }
