@@ -2,11 +2,6 @@ import { TeamdDriver } from '@/app/lib/definitions';
 import Table from '@/app/ui/table';
 // import Pagination from '@/app/ui/pagination';
 
-// this needs to be paginated and have suspense
-// also, things seem to be bloody everywhere. need to fix that
-// components should be async and load their own data so we can use suspense
-// around them when
-
 export default function ConstructorDrivers({
   constructorDrivers,
 }: {
