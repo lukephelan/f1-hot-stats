@@ -1,5 +1,5 @@
-import { fetchDriversPages } from '@/app/lib/data/drivers';
 import { Suspense } from 'react';
+import { fetchDriversPages } from '@/app/lib/data/drivers';
 import PageHeader from '@/app/ui/page-header';
 import { TableSkeleton } from '@/app/ui/skeletons';
 import Search from '@/app/ui/search';
