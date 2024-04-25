@@ -67,15 +67,12 @@ export function CardSkeleton({ height }: { height: string }) {
   );
 }
 
-export function DriverStatsSkeleton() {
+export function StatsSkeleton({ cardCount = 6 }: { cardCount?: number }) {
   return (
     <div className='my-4 grid grid-cols-2 gap-4'>
-      <CardSkeleton height='64px' />
-      <CardSkeleton height='64px' />
-      <CardSkeleton height='64px' />
-      <CardSkeleton height='64px' />
-      <CardSkeleton height='64px' />
-      <CardSkeleton height='64px' />
+      {Array.from({ length: cardCount }, (_, i) => (
+        <CardSkeleton key={i} height='64px' />
+      ))}
     </div>
   );
 }
