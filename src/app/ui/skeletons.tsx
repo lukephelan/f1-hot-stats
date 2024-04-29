@@ -34,7 +34,7 @@ export function TableSkeleton({
           <MobileRowSkeleton key={i} columnCount={headers.length} />
         ))}
       </div>
-      <table className='hidden min-w-full text-gray-900 md:table'>
+      <table className='hidden min-w-full text-gray-900 md:table animate-pulse'>
         <thead className='rounded-lg text-left text-sm font-normal'>
           <tr>
             {headers.map(({ key, label }) => (
@@ -51,5 +51,28 @@ export function TableSkeleton({
         </tbody>
       </table>
     </>
+  );
+}
+
+export function CardSkeleton({ height }: { height: string }) {
+  return (
+    <div
+      className='bg-white rounded-lg text-black shadow-md animate-pulse'
+      style={{ height: height }}
+    >
+      <div className='p-5'>
+        <div className='rounded bg-gray-100'></div>
+      </div>
+    </div>
+  );
+}
+
+export function StatsSkeleton({ cardCount = 6 }: { cardCount?: number }) {
+  return (
+    <div className='my-4 grid grid-cols-2 gap-4'>
+      {Array.from({ length: cardCount }, (_, i) => (
+        <CardSkeleton key={i} height='64px' />
+      ))}
+    </div>
   );
 }

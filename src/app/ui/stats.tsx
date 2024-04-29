@@ -1,5 +1,6 @@
-function formatValue(value: number | null) {
+function formatValue(value: string | number | null) {
   if (value === null) return '—';
+  if (typeof value === 'string') return value;
   return Number(value % 1) ? value.toFixed(2) : value;
 }
 
@@ -8,7 +9,7 @@ export function StatCard({
   value,
 }: {
   label: string;
-  value: number | null;
+  value: string | number | null;
 }) {
   return (
     <div className='bg-white rounded-lg text-black w-50 shadow-md'>
