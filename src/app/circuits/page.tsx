@@ -5,21 +5,7 @@ import { TableSkeleton } from '@/app/ui/skeletons';
 import Search from '@/app/ui/search';
 import CircuitsTable from '@/app/ui/circuits/table';
 import Pagination from '@/app/ui/pagination';
-
-export const HEADERS = [
-  {
-    key: 'name',
-    label: 'Circuit',
-  },
-  {
-    key: 'location',
-    label: 'Location',
-  },
-  {
-    key: 'country',
-    label: 'Country',
-  },
-];
+import { HEADERS } from './constants';
 
 export default async function Page({
   searchParams,

@@ -82,7 +82,7 @@ export function HeaderSkeleton() {
     <div className='flex w-full items-center justify-between p-5 rounded-lg bg-white text-black shadow-md'>
       <div className='h-10'></div>
     </div>
-  )
+  );
 }
 
 export function TablePageSkeleton({

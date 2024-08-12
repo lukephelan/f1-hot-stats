@@ -1,1 +1,1 @@
-export default async function DriverProfile() { }
+export default async function DriverProfile() {}

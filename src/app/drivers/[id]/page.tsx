@@ -14,9 +14,9 @@ export default async function Page({ params }: { params: { id: string } }) {
   return (
     <div className='w-full'>
       <PageHeader title={title} showBackButton={true} />
-        <Bio driver={driver} />
-        <DriverStats driverId={driverId} />
-        <DriverTeams driverId={driverId} />
+      <Bio driver={driver} />
+      <DriverStats driverId={driverId} />
+      <DriverTeams driverId={driverId} />
     </div>
   );
 }

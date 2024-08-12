@@ -5,29 +5,7 @@ import { TableSkeleton } from '@/app/ui/skeletons';
 import Search from '@/app/ui/search';
 import DriversTable from '@/app/ui/drivers/table';
 import Pagination from '@/app/ui/pagination';
-
-export const HEADERS = [
-  {
-    key: 'name',
-    label: 'Driver',
-  },
-  {
-    key: 'number',
-    label: 'Number',
-  },
-  {
-    key: 'code',
-    label: 'Code',
-  },
-  {
-    key: 'dob',
-    label: 'DOB',
-  },
-  {
-    key: 'nationality',
-    label: 'Nationality',
-  },
-];
+import { HEADERS } from './constants';
 
 export default async function Page({
   searchParams,
