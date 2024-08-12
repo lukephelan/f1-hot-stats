@@ -5,25 +5,7 @@ import { TableSkeleton } from '@/app/ui/skeletons';
 import Search from '@/app/ui/search';
 import RacesTable from '@/app/ui/races/table';
 import Pagination from '@/app/ui/pagination';
-
-const HEADERS = [
-  {
-    key: 'name',
-    label: 'Name',
-  },
-  {
-    key: 'circuit',
-    label: 'Circuit',
-  },
-  {
-    key: 'date',
-    label: 'Date',
-  },
-  {
-    key: 'round',
-    label: 'Round',
-  },
-];
+import { HEADERS } from './constants';
 
 export default async function Page({
   searchParams,

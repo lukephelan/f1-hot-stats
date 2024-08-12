@@ -1,18 +1,6 @@
 import { Driver } from '@/app/lib/definitions';
-import { formatDateToLocal } from '@/app/lib/utils';
 
-export default function Bio({
-  driver,
-  starts,
-}: {
-  driver: Driver;
-  starts: {
-    firstStartName: string;
-    lastStartName: string;
-    firstStartDate: Date;
-    lastStartDate: Date;
-  };
-}) {
+export default function Bio({ driver }: { driver: Driver }) {
   return (
     <div className='bg-white rounded-lg text-black w-50 my-4 p-5 shadow-md'>
       {driver.number && (
@@ -27,16 +15,6 @@ export default function Bio({
       )}
       <div>
         <span className='font-semibold'>Nationality:</span> {driver.nationality}
-      </div>
-      <div>
-        <span className='font-semibold'>First start:</span>{' '}
-        {starts.firstStartName} (
-        {formatDateToLocal(starts.firstStartDate.toString())})
-      </div>
-      <div>
-        <span className='font-semibold'>Last start:</span>{' '}
-        {starts.lastStartName} (
-        {formatDateToLocal(starts.lastStartDate.toString())})
       </div>
     </div>
   );

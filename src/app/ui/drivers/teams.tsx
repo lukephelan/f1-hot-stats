@@ -1,10 +1,8 @@
-import { DriverTeam } from '@/app/lib/definitions';
+import { fetchDriverTeams } from '@/app/lib/data/drivers';
 
-export default function DriverTeams({
-  driverTeams,
-}: {
-  driverTeams: DriverTeam[];
-}) {
+export default async function DriverTeams({ driverId }: { driverId: string }) {
+  const driverTeams = await fetchDriverTeams(driverId);
+
   return (
     <div className='bg-white rounded-lg text-black w-50 shadow-md'>
       <div className='p-5'>

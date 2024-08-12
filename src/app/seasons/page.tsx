@@ -5,13 +5,7 @@ import { TableSkeleton } from '@/app/ui/skeletons';
 import Search from '@/app/ui/search';
 import SeasonsTable from '@/app/ui/seasons/table';
 import Pagination from '@/app/ui/pagination';
-
-const HEADERS = [
-  {
-    key: 'year',
-    label: 'Year',
-  },
-];
+import { HEADERS } from './constants';
 
 export default async function Page({
   searchParams,

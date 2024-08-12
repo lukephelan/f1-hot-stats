@@ -5,17 +5,7 @@ import { TableSkeleton } from '@/app/ui/skeletons';
 import Search from '@/app/ui/search';
 import ConstructorsTable from '@/app/ui/constructors/table';
 import Pagination from '@/app/ui/pagination';
-
-const HEADERS = [
-  {
-    key: 'name',
-    label: 'Constructor',
-  },
-  {
-    key: 'nationality',
-    label: 'Nationality',
-  },
-];
+import { HEADERS } from './constants';
 
 export default async function Page({
   searchParams,
