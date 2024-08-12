@@ -6,7 +6,7 @@ import Search from '@/app/ui/search';
 import CircuitsTable from '@/app/ui/circuits/table';
 import Pagination from '@/app/ui/pagination';
 
-const HEADERS = [
+export const HEADERS = [
   {
     key: 'name',
     label: 'Circuit',

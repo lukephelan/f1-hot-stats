@@ -4,7 +4,6 @@ import PageHeader from '@/app/ui/page-header';
 import Bio from '@/app/ui/drivers/bio';
 import DriverStats from '@/app/ui/drivers/stats';
 import DriverTeams from '@/app/ui/drivers/teams';
-import { StatsSkeleton, CardSkeleton } from '@/app/ui/skeletons';
 
 export default async function Page({ params }: { params: { id: string } }) {
   const driverId = params.id;
@@ -15,13 +14,9 @@ export default async function Page({ params }: { params: { id: string } }) {
   return (
     <div className='w-full'>
       <PageHeader title={title} showBackButton={true} />
-      <Bio driver={driver} />
-      <Suspense fallback={<StatsSkeleton />}>
+        <Bio driver={driver} />
         <DriverStats driverId={driverId} />
-      </Suspense>
-      <Suspense fallback={<CardSkeleton height='100px' />}>
         <DriverTeams driverId={driverId} />
-      </Suspense>
     </div>
   );
 }

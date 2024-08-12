@@ -6,7 +6,7 @@ import Search from '@/app/ui/search';
 import RacesTable from '@/app/ui/races/table';
 import Pagination from '@/app/ui/pagination';
 
-const HEADERS = [
+export const HEADERS = [
   {
     key: 'name',
     label: 'Name',

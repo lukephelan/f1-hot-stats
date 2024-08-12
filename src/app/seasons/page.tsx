@@ -6,7 +6,7 @@ import Search from '@/app/ui/search';
 import SeasonsTable from '@/app/ui/seasons/table';
 import Pagination from '@/app/ui/pagination';
 
-const HEADERS = [
+export const HEADERS = [
   {
     key: 'year',
     label: 'Year',

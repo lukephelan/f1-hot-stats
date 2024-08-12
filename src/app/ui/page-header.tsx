@@ -9,7 +9,9 @@ export default function PageHeader({
 }) {
   return (
     <div className='flex w-full items-center justify-between p-5 rounded-lg bg-white text-black shadow-md'>
-      <h1 className='text-2xl'>{title}</h1>
+      <div className='min-h-10'>
+        <h1 className='text-2xl'>{title}</h1>
+      </div>
       {showBackButton && <BackButton />}
     </div>
   );

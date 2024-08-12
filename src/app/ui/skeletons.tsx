@@ -76,3 +76,43 @@ export function StatsSkeleton({ cardCount = 6 }: { cardCount?: number }) {
     </div>
   );
 }
+
+export function HeaderSkeleton() {
+  return (
+    <div className='flex w-full items-center justify-between p-5 rounded-lg bg-white text-black shadow-md'>
+      <div className='h-10'></div>
+    </div>
+  )
+}
+
+export function TablePageSkeleton({
+  headers,
+  rowCount = 10,
+}: {
+  headers: { key: string; label: string }[];
+  rowCount?: number;
+}) {
+  return (
+    <>
+      <HeaderSkeleton />
+      <div className='h-10 bg-white rounded-md border border-gray-200 py-[9px] pl-10 outline-2 mt-2 md:mt-6'></div>
+      <div className='mt-2 md:mt-6 flow-root'>
+        <div className='inline-block min-w-full align-middle'>
+          <div className='rounded-lg bg-gray-50 text-gray-900 p-2 md:pt-0'>
+            <TableSkeleton headers={headers} rowCount={rowCount} />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export function DetailPageSkeleton() {
+  return (
+    <>
+      <HeaderSkeleton />
+      <StatsSkeleton />
+      <CardSkeleton height='100px' />
+    </>
+  );
+}
