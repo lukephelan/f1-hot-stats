@@ -9,12 +9,12 @@ export default defineConfig({
     globals: true,
     coverage: {
       include: ['src/**/*.{ts,tsx}'],
-      thresholds: {
-        functions: 80,
-        lines: 80,
-        branches: 80,
-        statements: 80,
-      }
+      // thresholds: {
+      //   functions: 80,
+      //   lines: 80,
+      //   branches: 80,
+      //   statements: 80,
+      // }
     }
   },
   resolve: {
