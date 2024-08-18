@@ -1,5 +1,4 @@
 import { F1Constructor } from '@/app/lib/definitions';
-import { formatDateToLocal } from '@/app/lib/utils';
 
 export default function Bio({
   f1Constructor,

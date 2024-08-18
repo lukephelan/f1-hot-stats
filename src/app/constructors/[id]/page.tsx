@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import { fetchConstructor } from '@/app/lib/data/constructors';
 import PageHeader from '@/app/ui/page-header';
 import Bio from '@/app/ui/constructors/bio';

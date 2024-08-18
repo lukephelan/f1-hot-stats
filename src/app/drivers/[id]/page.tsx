@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import { fetchDriver } from '@/app/lib/data/drivers';
 import PageHeader from '@/app/ui/page-header';
 import Bio from '@/app/ui/drivers/bio';
