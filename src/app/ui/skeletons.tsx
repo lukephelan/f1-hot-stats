@@ -10,7 +10,7 @@ export function TableRowSkeleton({ columnCount }: { columnCount: number }) {
   );
 }
 
-export function MobileRowSkeleton({ columnCount }: { columnCount: number }) {
+export function MobileRowSkeleton() {
   return (
     <div className='mb-2 w-full rounded-md bg-white p-4'>
       <div className='whitespace-nowrap px-3 py-1'>
@@ -31,7 +31,7 @@ export function TableSkeleton({
     <>
       <div className='md:hidden'>
         {Array.from({ length: rowCount }, (_, i) => (
-          <MobileRowSkeleton key={i} columnCount={headers.length} />
+          <MobileRowSkeleton key={i} />
         ))}
       </div>
       <table className='hidden min-w-full text-gray-900 md:table animate-pulse'>

@@ -1,8 +1,8 @@
 export type Driver = {
   driverId: number;
   driverRef: string;
-  number: number | null;
-  code: string;
+  number?: number | null;
+  code?: string;
   name: string;
   dob: string;
   nationality: string;
